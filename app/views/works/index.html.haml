@@ -1,0 +1,16 @@
+-@works.each do|work|
+
+  ="Title："
+  =link_to work.title, work_path(work)
+  %br
+  ="Release："
+  =work.release
+  %br
+  ="Starring："
+  =work.starring
+  %br
+  ="Description："
+  =work.description
+  %hr
+
+=link_to "新規登録", new_work_path
