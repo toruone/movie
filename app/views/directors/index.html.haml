@@ -1,0 +1,10 @@
+-@directors.each do|director|
+
+  ="Name："
+  =link_to director.name, director_path(director)
+  %br
+  ="From："
+  =director.from
+  %hr
+
+=link_to "新規登録", new_director_path
