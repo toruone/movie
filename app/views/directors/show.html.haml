@@ -1,7 +1,12 @@
 =@director.name
 =@director.from
 
+-@director.works.each do|work|
+  %br
+  =link_to "☆ #{work.title} (#{work.release.year})", work_path(work)
 
-=link_to "一覧に戻る", directors_path
+%br
+=link_to "Add New Movie", new_work_path(director_id: @director.id)
 =link_to "編集する",  edit_director_path(@director)
 =link_to "削除する", director_path(@director), method: :delete, data: {confirm: "本当にいいですか？"}
+=link_to "一覧に戻る", directors_path

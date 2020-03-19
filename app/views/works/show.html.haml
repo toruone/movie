@@ -2,7 +2,16 @@
 =@work.release
 =@work.starring
 =@work.description
-
+%br
+=link_to "#{@work.director.name}", director_path(@work.director)
+%br
+%br
+="#{@work.director.name} Works"
+%br
+-@work.related_works.each do|work|
+  =link_to "#{work.title} (#{work.release.year})", work_path(work)
+  %br
+%br
 =link_to "一覧に戻る", works_path
 =link_to "編集する",  edit_work_path(@work)
 =link_to "削除する", work_path(@work), method: :delete, data: {confirm: "本当にいいですか？"}

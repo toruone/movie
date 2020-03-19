@@ -1,16 +1,9 @@
--@works.each do|work|
-
-  ="Title："
-  =link_to work.title, work_path(work)
-  %br
-  ="Release："
-  =work.release
-  %br
-  ="Starring："
-  =work.starring
-  %br
-  ="Description："
-  =work.description
-  %hr
-
+.container
+  .row.list-group
+    -@works.each do |work|
+      .list-group-item
+        =link_to "#{work.title} / #{work.director.name}(#{work.release.year})", work_path(work)
+        =link_to higher_work_path(work), class: work.first? ? ' disabled' : '' do
+          %i.fa.fa-arrow-up{"aria-hidden" => "true"}
+%hr
 =link_to "新規登録", new_work_path

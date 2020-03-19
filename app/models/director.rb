@@ -1,4 +1,5 @@
 class Director < ApplicationRecord
+  has_many :works
   validates :name, presence: true
   validates :from, presence: true
   scope :by_name, ->{ order(name: :asc) }
