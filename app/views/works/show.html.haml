@@ -1,17 +1,88 @@
-=@work.title
-=@work.release
-=@work.starring
-=@work.description
-%br
-=link_to "#{@work.director.name}", director_path(@work.director)
-%br
-%br
-="#{@work.director.name} Works"
-%br
--@work.related_works.each do|work|
-  =link_to "#{work.title} (#{work.release.year})", work_path(work)
-  %br
-%br
-=link_to "一覧に戻る", works_path
-=link_to "編集する",  edit_work_path(@work)
-=link_to "削除する", work_path(@work), method: :delete, data: {confirm: "本当にいいですか？"}
+-# =@work.title
+-# =@work.release
+-# =@work.starring
+-# =@work.description
+-# %br
+-# =link_to "#{@work.director.name}", director_path(@work.director)
+-# %br
+-# %br
+-# ="#{@work.director.name} Works"
+-# %br
+-# -@work.related_works.each do|work|
+-#   =link_to "#{work.title} (#{work.release.year})", work_path(work)
+-#   %br
+-# %br
+-# =link_to "一覧に戻る", works_path
+-# =link_to "編集する",  edit_work_path(@work)
+-# =link_to "削除する", work_path(@work), method: :delete, data: {confirm: "本当にいいですか？"}
+
+%main#main
+  %section.section
+    .container
+      .row.mb-4.align-items-center
+        .col-md-6{"data-aos" => "fade-up"}
+          %h2=@work.title
+          %p Release:#{@work.release.year}
+          Director:
+          =link_to @work.director.name, director_path(@work.director)
+
+    .site-section.pb-0
+      .container
+        .row.align-items-stretch
+          .col-md-8{"data-aos" => "fade-up"}
+            %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
+          .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+            .sticky-content
+              %h3.h3=@work.title
+              %p.mb-4
+                %span.text-muted=@work.release.year
+              .mb-5
+                %p
+                  =@work.description
+              %h4.h4.mb-3 Director
+              %ul.list-unstyled.list-line.mb-5
+                %li=link_to @work.director.name, director_path(@work.director)
+
+          .site-section.pb-0
+          .container
+            .row.justify-content-center.text-center.mb-4
+              .col-5
+                %h3.h3.heading More Works
+                %p Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.
+            .row{"data-aos" => "fade-up", "data-aos-delay" => "200"}
+              .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
+                %a.item-wrap.fancybox{:href => "work-single.html"}
+                  .work-info
+                    %h3 Boxed Water
+                    %span Web
+                  %img.img-fluid{:src => "img/img_1.jpg"}/
+              .item.photography.col-sm-6.col-md-4.col-lg-4.mb-4
+                %a.item-wrap.fancybox{:href => "work-single.html"}
+                  .work-info
+                    %h3 Build Indoo
+                    %span Photography
+                  %img.img-fluid{:src => "img/img_2.jpg"}/
+              .item.branding.col-sm-6.col-md-4.col-lg-4.mb-4
+                %a.item-wrap.fancybox{:href => "work-single.html"}
+                  .work-info
+                    %h3 Cocooil
+                    %span Branding
+                  %img.img-fluid{:src => "img/img_3.jpg"}/
+              .item.design.col-sm-6.col-md-4.col-lg-4.mb-4
+                %a.item-wrap.fancybox{:href => "work-single.html"}
+                  .work-info
+                    %h3 Nike Shoe
+                    %span Design
+                  %img.img-fluid{:src => "img/img_4.jpg"}/
+              .item.photography.col-sm-6.col-md-4.col-lg-4.mb-4
+                %a.item-wrap.fancybox{:href => "work-single.html"}
+                  .work-info
+                    %h3 Kitchen Sink
+                    %span Photography
+                  %img.img-fluid{:src => "img/img_5.jpg"}/
+              .item.branding.col-sm-6.col-md-4.col-lg-4.mb-4
+                %a.item-wrap.fancybox{:href => "work-single.html"}
+                  .work-info
+                    %h3 Amazon
+                    %span brandingn
+                  %img.img-fluid{:src => "img/img_6.jpg"}/
