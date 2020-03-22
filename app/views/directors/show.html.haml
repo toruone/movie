@@ -1,12 +1,39 @@
-=@director.name
-=@director.from
+-# =@director.name
+-# =@director.from
+-#
+-# -@director.works.each do|work|
+-#   %br
+-#   =link_to "☆ #{work.title} (#{work.release.year})", work_path(work)
+-#
+-# %br
+-# =link_to "Add New Movie", new_work_path(director_id: @director.id)
+-# =link_to "編集する",  edit_director_path(@director)
+-# =link_to "削除する", director_path(@director), method: :delete, data: {confirm: "本当にいいですか？"}
+-# =link_to "一覧に戻る", directors_path
 
--@director.works.each do|work|
-  %br
-  =link_to "☆ #{work.title} (#{work.release.year})", work_path(work)
 
-%br
-=link_to "Add New Movie", new_work_path(director_id: @director.id)
-=link_to "編集する",  edit_director_path(@director)
-=link_to "削除する", director_path(@director), method: :delete, data: {confirm: "本当にいいですか？"}
-=link_to "一覧に戻る", directors_path
+%main#main
+  / ======= Works Section =======
+  %section.section.site-portfolio
+    .container
+      .row.mb-5.align-items-center
+        .col-md-12.col-lg-6.mb-4.mb-lg-0{"data-aos" => "fade-up"}
+          %h2=@director.name
+          %p.mb-0=@director.from
+        .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+          .filters
+            -# =link_to "by Title" , works_path
+            -# %a.active{"data-filter" => "*", :href => "#"} Director
+            -# %a{"data-filter" => ".web", :href => "#"} Web
+            -# %a{"data-filter" => ".design", :href => "#"} Design
+            -# %a{"data-filter" => ".branding", :href => "#"} Branding
+            -# %a{"data-filter" => ".photography", :href => "#"} Photography
+      #portfolio-grid.row.no-gutter{"data-aos" => "fade-up", "data-aos-delay" => "200"}
+        -@director.works.each do|work|
+          .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
+            -# %a.item-wrap.fancybox{:href => "work_path(work)"}
+            =link_to work_path(work), class: "item-wrap fancybox" do
+              .work-info
+                %h3=work.title
+                %span=work.release.year
+              %img.img-fluid{:src => "img/img_1.jpg"}/
