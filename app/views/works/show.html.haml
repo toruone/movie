@@ -22,9 +22,13 @@
       .row.mb-4.align-items-center
         .col-md-6{"data-aos" => "fade-up"}
           %h2=@work.title
-          %p Release:#{@work.release.year}
-          Director:
-          =link_to @work.director.name, director_path(@work.director)
+          %p
+            Release:#{@work.release.year}
+            %br
+            Director:
+            =link_to @work.director.name, director_path(@work.director)
+          =link_to "Edit",  edit_work_path(@work), class: "btn btn-outline-success"
+          =link_to "Delete", work_path(@work), method: :delete, data: {confirm: "本当にいいですか？"}, class: "btn btn-outline-danger"
 
     .site-section.pb-0
       .container
@@ -42,47 +46,56 @@
               %h4.h4.mb-3 Director
               %ul.list-unstyled.list-line.mb-5
                 %li=link_to @work.director.name, director_path(@work.director)
+    .site-section.pb-0
+      .container
+        .row.justify-content-center.text-center.mb-4
+          .col-5
+            %h3.h3.heading="#{@work.director.name} Works"
+            %p Also recommend these works
+        .row{"data-aos" => "fade-up", "data-aos-delay" => "200"}
+          -@work.related_works.each do|work|
+            .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
+              -# %a.item-wrap.fancybox{:href => "work_path(work)"}
+              =link_to work_path(work), class: "item-wrap fancybox" do
+                .work-info
+                  %h3=work.title
+                  %span=work.release.year
+                %img.img-fluid{:src => "/img/img_1.jpg"}/
 
-          .site-section.pb-0
-          .container
-            .row.justify-content-center.text-center.mb-4
-              .col-5
-                %h3.h3.heading More Works
-                %p Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.
-            .row{"data-aos" => "fade-up", "data-aos-delay" => "200"}
-              .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
-                %a.item-wrap.fancybox{:href => "work-single.html"}
-                  .work-info
-                    %h3 Boxed Water
-                    %span Web
-                  %img.img-fluid{:src => "img/img_1.jpg"}/
-              .item.photography.col-sm-6.col-md-4.col-lg-4.mb-4
-                %a.item-wrap.fancybox{:href => "work-single.html"}
-                  .work-info
-                    %h3 Build Indoo
-                    %span Photography
-                  %img.img-fluid{:src => "img/img_2.jpg"}/
-              .item.branding.col-sm-6.col-md-4.col-lg-4.mb-4
-                %a.item-wrap.fancybox{:href => "work-single.html"}
-                  .work-info
-                    %h3 Cocooil
-                    %span Branding
-                  %img.img-fluid{:src => "img/img_3.jpg"}/
-              .item.design.col-sm-6.col-md-4.col-lg-4.mb-4
-                %a.item-wrap.fancybox{:href => "work-single.html"}
-                  .work-info
-                    %h3 Nike Shoe
-                    %span Design
-                  %img.img-fluid{:src => "img/img_4.jpg"}/
-              .item.photography.col-sm-6.col-md-4.col-lg-4.mb-4
-                %a.item-wrap.fancybox{:href => "work-single.html"}
-                  .work-info
-                    %h3 Kitchen Sink
-                    %span Photography
-                  %img.img-fluid{:src => "img/img_5.jpg"}/
-              .item.branding.col-sm-6.col-md-4.col-lg-4.mb-4
-                %a.item-wrap.fancybox{:href => "work-single.html"}
-                  .work-info
-                    %h3 Amazon
-                    %span brandingn
-                  %img.img-fluid{:src => "img/img_6.jpg"}/
+            -# .row{"data-aos" => "fade-up", "data-aos-delay" => "200"}
+            -#   .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
+            -#     %a.item-wrap.fancybox{:href => "work-single.html"}
+            -#       .work-info
+            -#         %h3 Boxed Water
+            -#         %span Web
+            -#       %img.img-fluid{:src => "img/img_1.jpg"}/
+            -#   .item.photography.col-sm-6.col-md-4.col-lg-4.mb-4
+            -#     %a.item-wrap.fancybox{:href => "work-single.html"}
+            -#       .work-info
+            -#         %h3 Build Indoo
+            -#         %span Photography
+            -#       %img.img-fluid{:src => "img/img_2.jpg"}/
+            -#   .item.branding.col-sm-6.col-md-4.col-lg-4.mb-4
+            -#     %a.item-wrap.fancybox{:href => "work-single.html"}
+            -#       .work-info
+            -#         %h3 Cocooil
+            -#         %span Branding
+            -#       %img.img-fluid{:src => "img/img_3.jpg"}/
+            -#   .item.design.col-sm-6.col-md-4.col-lg-4.mb-4
+            -#     %a.item-wrap.fancybox{:href => "work-single.html"}
+            -#       .work-info
+            -#         %h3 Nike Shoe
+            -#         %span Design
+            -#       %img.img-fluid{:src => "img/img_4.jpg"}/
+            -#   .item.photography.col-sm-6.col-md-4.col-lg-4.mb-4
+            -#     %a.item-wrap.fancybox{:href => "work-single.html"}
+            -#       .work-info
+            -#         %h3 Kitchen Sink
+            -#         %span Photography
+            -#       %img.img-fluid{:src => "img/img_5.jpg"}/
+            -#   .item.branding.col-sm-6.col-md-4.col-lg-4.mb-4
+            -#     %a.item-wrap.fancybox{:href => "work-single.html"}
+            -#       .work-info
+            -#         %h3 Amazon
+            -#         %span brandingn
+            -#       %img.img-fluid{:src => "img/img_6.jpg"}/
