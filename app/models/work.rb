@@ -1,4 +1,5 @@
 class Work < ApplicationRecord
+  mount_uploader :image, WorkImageUploader
   belongs_to :director
 
   acts_as_list

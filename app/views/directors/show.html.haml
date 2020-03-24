@@ -22,19 +22,52 @@
           %p.mb-0=@director.from
         .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
           .filters
-            -# =link_to "by Title" , works_path
-            -# %a.active{"data-filter" => "*", :href => "#"} Director
-            -# %a{"data-filter" => ".web", :href => "#"} Web
-            -# %a{"data-filter" => ".design", :href => "#"} Design
-            -# %a{"data-filter" => ".branding", :href => "#"} Branding
-            -# %a{"data-filter" => ".photography", :href => "#"} Photography
-      #portfolio-grid.row.no-gutter{"data-aos" => "fade-up", "data-aos-delay" => "200"}
-        -@director.works.each do|work|
-          .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
-            -# %a.item-wrap.fancybox{:href => "work_path(work)"}
-            =link_to work_path(work), class: "item-wrap fancybox" do
-              .work-info
-                %h3=work.title
-                %span=work.release.year
-              %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
-      =link_to "back", directors_path, class: "btn btn-secondary"
+        =link_to "Add New Movie", new_work_path(director_id: @director.id), class: "btn btn-outline-secondary"
+        =link_to "Edit",  edit_director_path(@director), class: "btn btn-outline-success"
+        =link_to "Delete", director_path(@director), method: :delete, data: {confirm: "本当にいいですか？"}, class: "btn btn-outline-danger"
+        -# =link_to "Back to Director Index", directors_path, class: "btn btn-secondary"
+  .site-section.pb-0
+    .container
+      .row.align-items-stretch
+        .col-md-8{"data-aos" => "fade-up"}
+          -# =image_tag @director.image.to_s, class: "img-fluid"
+          %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
+        .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
+          .sticky-content
+            %p
+            %h4.h4.mb-3 Works
+            -@director.works.each do|work|
+              %br
+              =link_to "- #{work.title} (#{work.release.year})", work_path(work)
+        -# %h4.h4.mb-3 Director
+            %h3.h3=@director.name
+            %p.mb-4
+              %span.text-muted=@director.from
+            .mb-5
+              %p
+                =@director.work
+            -# %h4.h4.mb-3 Director
+            -# %ul.list-unstyled.list-line.mb-5
+            -#   %li=link_to @work.director.name, director_path(@work.director)
+          -# =link_to "Back to Director Index", directors_path, class: "btn btn-secondary"
+
+        =link_to "Back to Director Index", directors_path, class: "btn btn-secondary"
+
+
+
+-# =link_to "by Title" , works_path
+-# %a.active{"data-filter" => "*", :href => "#"} Director
+-# %a{"data-filter" => ".web", :href => "#"} Web
+-# %a{"data-filter" => ".design", :href => "#"} Design
+-# %a{"data-filter" => ".branding", :href => "#"} Branding
+-# %a{"data-filter" => ".photography", :href => "#"} Photography
+-# #portfolio-grid.row.no-gutter{"data-aos" => "fade-up", "data-aos-delay" => "200"}
+-#   -@director.works.each do|work|
+-#     .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
+-#       -# %a.item-wrap.fancybox{:href => "work_path(work)"}
+-#       =link_to work_path(work), class: "item-wrap fancybox" do
+-#         .work-info
+-#           %h3=work.title
+-#           %span=work.release.year
+-#         %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
+-# =link_to "back", directors_path, class: "btn btn-secondary"

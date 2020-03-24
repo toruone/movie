@@ -5,10 +5,10 @@
         %ul.custom-menu
           %li.active
             %a{:href => "index.html"} Home
+          -# %li
+          -#   %a{:href => "about.html"} About Me
           %li
-            %a{:href => "about.html"} About Me
-          %li
-            %a{:href => "services.html"} Director
+            %a{:href => "directors.html"} Director
           %li
             %a{:href => "works.html"} Works
           %li
@@ -22,14 +22,15 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
                 %br/
                 %a{:href => "#"} t.co/v82jsk
-      .col-md-4.d-none.d-md-block
-        %h3 Hire Me
-        %p
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiisexplicabo inventore.
-          %br/
-          %a{:href => "#"} myemail@gmail.com
+      -# .col-md-4.d-none.d-md-block
+      -#   %h3 Hire Me
+      -#   %p
+      -#     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiisexplicabo inventore.
+      -#     %br/
+      -#     %a{:href => "#"} myemail@gmail.com
 %nav.navbar.navbar-light.custom-navbar
   .container
-    %a.navbar-brand{:href => "index.html"} MyPortfolio.
+    -# %a.navbar-brand{:href => "index.html"} MyPortfolio.
+    =link_to "Movielog", works_path, class: "navbar-brand"
     %a.burger{"data-target" => "#main-navbar", "data-toggle" => "collapse", :href => "#"}
       %span

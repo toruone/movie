@@ -22,7 +22,8 @@
               .work-info
                 %h3=work.title
                 %span=work.release.year
-              %img.img-fluid{:src => "img/img_1.jpg"}/
+              =image_tag work.image.to_s, class: "img-fluid"
+              -# %img.img-fluid{:src => "img/img_1.jpg"}/
 
 -#   / End  Works Section
 -#   / ======= Clients Section =======

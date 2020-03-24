@@ -19,7 +19,7 @@
           %p.mb-0 Master directors
         .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
           .filters
-            =link_to "by Title" , works_path
+            =link_to "by Movie" , works_path
             -# %a.active{"data-filter" => "*", :href => "#"} Director
             -# %a{"data-filter" => ".web", :href => "#"} Web
             -# %a{"data-filter" => ".design", :href => "#"} Design
@@ -34,3 +34,4 @@
                 %h3=director.name
                 %span=director.from
               %img.img-fluid{:src => "img/img_1.jpg"}/
+      =link_to "Add New Director",  new_director_path, class: "btn btn-outline-success"
