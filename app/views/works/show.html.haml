@@ -34,7 +34,7 @@
       .container
         .row.align-items-stretch
           .col-md-8{"data-aos" => "fade-up"}
-            =image_tag @work.image.to_s, class: "img-fluid"
+            =image_tag @work.image_url, class: "img-fluid"
             -# %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
           .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
             .sticky-content
@@ -61,7 +61,7 @@
                 .work-info
                   %h3=work.title
                   %span=work.release.year
-                =image_tag work.image.to_s, class: "img-fluid"
+                =image_tag work.image_url(:thumb), class: "img-fluid"
                 -# %img.img-fluid{:src => "/img/img_1.jpg"}/
 
             -# .row{"data-aos" => "fade-up", "data-aos-delay" => "200"}

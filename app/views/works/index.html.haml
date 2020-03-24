@@ -22,7 +22,7 @@
               .work-info
                 %h3=work.title
                 %span=work.release.year
-              =image_tag work.image.to_s, class: "img-fluid"
+              =image_tag work.image_url(:thumb), class: "img-fluid"
               -# %img.img-fluid{:src => "img/img_1.jpg"}/
 
 -#   / End  Works Section
