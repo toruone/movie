@@ -55,15 +55,15 @@
             .col-5
               %h3.h3.heading="#{@work.director.name} Works"
               %p Also recommend these works
-              .row{"data-aos" => "fade-up", "data-aos-delay" => "200"}
-              -@work.related_works.each do|work|
-                .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
-                  -# %a.item-wrap.fancybox{:href => "work_path(work)"}
-                  =link_to work_path(work), class: "item-wrap fancybox" do
-                    .work-info
-                      %h3=work.title
-                      %span=work.release.year
-                    =image_tag work.image_url(:thumb), class: "img-fluid"
+          .row{"data-aos" => "fade-up", "data-aos-delay" => "200"}
+          -@work.related_works.each do|work|
+            .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
+              -# %a.item-wrap.fancybox{:href => "work_path(work)"}
+              =link_to work_path(work), class: "item-wrap fancybox" do
+                .work-info
+                  %h3=work.title
+                  %span=work.release.year
+                =image_tag work.image_url(:thumb), class: "img-fluid"
 
                 -# %img.img-fluid{:src => "/img/img_1.jpg"}/
 
