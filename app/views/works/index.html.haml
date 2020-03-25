@@ -6,6 +6,7 @@
         .col-md-12.col-lg-6.mb-4.mb-lg-0{"data-aos" => "fade-up"}
           %h2 Movie Index
           %p.mb-0 Masterpieces
+          =link_to "New Movie",  new_work_path, class: "btn btn-outline-success"
         .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
           .filters
             =link_to "by Director" , directors_path
