@@ -23,8 +23,11 @@
               .work-info
                 %h3=work.title
                 %span=work.release.year
+                %br
+                %span=work.director.name	
               =image_tag work.image_url(:thumb), class: "img-fluid"
               -# %img.img-fluid{:src => "img/img_1.jpg"}/
+      =paginate @works
 
 -#   / End  Works Section
 -#   / ======= Clients Section =======

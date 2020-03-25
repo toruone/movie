@@ -2,7 +2,7 @@ class WorksController < ApplicationController
   before_action :set_work, only: [:edit, :show, :update, :destroy]
 
   def index
-    @works = Work.all.by_position
+    @works = Work.includes(:director).by_position.page(params[:page]).per(9)
   end
 
   def create
@@ -50,7 +50,7 @@ class WorksController < ApplicationController
   end
 
   def work_params
-    params[:work].permit(:title, :release, :starring, :description, :director_id, :position,:image)
+    params[:work].permit(:title, :release, :starring, :description, :director_id, :image)
   end
 
 
