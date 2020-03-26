@@ -8,11 +8,19 @@
           -# %li
           -#   %a{:href => "about.html"} About Me
           %li
-            %a{:href => "directors.html"} Director
+            %a{:href => "/directors"} Director
           %li
-            %a{:href => "works.html"} Works
-          %li
-            %a{:href => "contact.html"} Contact
+            %a{:href => "/works"} Works
+          %br
+          -if user_signed_in?
+            %li
+              %a{:href => "/users/sign_out"}  Logout
+          -else
+            %li
+              %a{:href => "/users/sign_in"}  Login
+            %li
+              %a{:href => "/users/sign_up"}  Sign UP
+
       .col-md-6.d-none.d-md-block.mr-auto
         .tweet.d-flex
           %span.icofont-twitter.text-white.mt-2.mr-3

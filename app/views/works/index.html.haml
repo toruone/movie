@@ -6,7 +6,7 @@
         .col-md-12.col-lg-6.mb-4.mb-lg-0{"data-aos" => "fade-up"}
           %h2 Movie Index
           %p.mb-0 Masterpieces
-          =link_to "New Movie",  new_work_path, class: "btn btn-outline-success"
+          =link_to "New Movie",  new_login_work_path, class: "btn btn-outline-success"
         .col-md-12.col-lg-6.text-left.text-lg-right{"data-aos" => "fade-up", "data-aos-delay" => "100"}
           .filters
             =link_to "by Director" , directors_path
@@ -24,8 +24,12 @@
                 %h3=work.title
                 %span=work.release.year
                 %br
-                %span=work.director.name	
-              =image_tag work.image_url(:thumb), class: "img-fluid"
+                %span=work.director.name
+              -if work.image.present?
+                =image_tag work.image_url(:thumb), class: 'img-fluid'
+              -else
+                %img.img-fluid{:src => "img/default_work.png"}/
+              -# =image_tag work.image_url(:thumb), class: "img-fluid"
               -# %img.img-fluid{:src => "img/img_1.jpg"}/
       =paginate @works
 
