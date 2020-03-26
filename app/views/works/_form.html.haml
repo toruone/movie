@@ -5,4 +5,10 @@
   =f.text_field :starring
   =f.text_field :description
   =f.file_field :image
+  -if @work.image?
+    .m-t-5
+      =image_tag @work.image_url(:thumb)
+      .checkbox.checkbox-primary.m-t-5
+        =f.check_box_without_bootstrap :remove_image
+        =f.label :remove_image, 'Image Delete'
   =f.submit class: "btn btn-info"
