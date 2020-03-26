@@ -27,8 +27,9 @@
             %br
             Director:
             =link_to @work.director.name, director_path(@work.director)
-          =link_to "Edit",  edit_work_path(@work), class: "btn btn-outline-success"
-          =link_to "Delete", work_path(@work), method: :delete, data: {confirm: "本当にいいですか？"}, class: "btn btn-outline-danger"
+          -if user_signed_in?
+            =link_to "Edit",  edit_login_work_path(@work), class: "btn btn-outline-success"
+            =link_to "Delete", login_works_path, method: :delete, data: {confirm: "本当にいいですか？"}, class: "btn btn-outline-danger"
 
     .site-section.pb-0
       .container
@@ -63,7 +64,11 @@
                   .work-info
                     %h3=work.title
                     %span=work.release.year
-                  =image_tag work.image_url(:thumb), class: "img-fluid"
+                    -if work.image.present?
+                      =image_tag work.image_url(:thumb), class: 'img-fluid'
+                    -else
+                      %img.img-fluid{:src => "/img/default_work.png"}/
+                  -# =image_tag work.image_url(:thumb), class: "img-fluid"
 
                 -# %img.img-fluid{:src => "/img/img_1.jpg"}/
 
