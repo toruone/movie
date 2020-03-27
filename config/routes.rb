@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#index"
+  root to: "works#index"
   get "home/index"
 
   resources :directors, only: [:index, :show]

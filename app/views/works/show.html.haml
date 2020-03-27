@@ -69,14 +69,12 @@
                   .work-info
                     %h3=work.title
                     %span=work.release.year
-                    -if work.image.present?
-                      =image_tag work.image_url(:thumb), class: 'img-fluid'
-                    -else
-                      %img.img-fluid{:src => "/img/default_work.png"}/
-                      -# =image_tag @work.image_url(:thumb), class: "img-fluid"
-                      -# =image_tag work.image_url(:thumb), class: 'img-fluid'
-                -# %img.img-fluid{:src => "/img/img_1.jpg"}/
+                  -if work.image.present?
+                    =image_tag work.image_url(:thumb), class: 'img-fluid'
+                  -else
+                    %img.img-fluid{:src => "/img/default_work.png"}/
 
+                  
             -# .row{"data-aos" => "fade-up", "data-aos-delay" => "200"}
             -#   .item.web.col-sm-6.col-md-4.col-lg-4.mb-4
             -#     %a.item-wrap.fancybox{:href => "work-single.html"}

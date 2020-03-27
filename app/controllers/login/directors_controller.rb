@@ -28,7 +28,7 @@ class Login::DirectorsController < Login::ApplicationController
   # end
 
   def update
-    if @director.update(director_params)
+    if @director.update(login_director_params)
       redirect_to directors_path(@director)
     else
       render "edit"
