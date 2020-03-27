@@ -35,7 +35,12 @@
       .container
         .row.align-items-stretch
           .col-md-8{"data-aos" => "fade-up"}
-            =image_tag @work.image_url, class: "img-fluid"
+            -if @work.image.present?
+              =image_tag @work.image_url, class: "img-fluid"
+              -# =image_tag work.image_url(:thumb), class: 'img-fluid'
+            -else
+              %img.img-fluid{:src => "/img/default_work_large.png"}/
+            -# =image_tag @work.image_url, class: "img-fluid"
             -# %img.img-fluid{:alt => "Image", :src => "/img/img_1_big.jpg"}/
           .col-md-3.ml-auto{"data-aos" => "fade-up", "data-aos-delay" => "100"}
             .sticky-content
@@ -68,8 +73,8 @@
                       =image_tag work.image_url(:thumb), class: 'img-fluid'
                     -else
                       %img.img-fluid{:src => "/img/default_work.png"}/
-                  -# =image_tag work.image_url(:thumb), class: "img-fluid"
-
+                      -# =image_tag @work.image_url(:thumb), class: "img-fluid"
+                      -# =image_tag work.image_url(:thumb), class: 'img-fluid'
                 -# %img.img-fluid{:src => "/img/img_1.jpg"}/
 
             -# .row{"data-aos" => "fade-up", "data-aos-delay" => "200"}
