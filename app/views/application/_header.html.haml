@@ -14,6 +14,8 @@
           %br
           -if user_signed_in?
             %li
+              %a{:href => "/login/profile/edit"}  My Page
+            %li
               %a{:href => "/users/sign_out"}  Logout
           -else
             %li

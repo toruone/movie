@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   namespace :login do
     resources :works, only: [:new, :create, :edit, :update, :destroy]
     resources :directors, only: [:new, :create, :edit, :update, :destroy]
+    resource :profile, only: [:create, :edit, :update]
   end
+  
 
 end
