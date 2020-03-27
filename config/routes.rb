@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   namespace :login do
-    resources :works, only: [:new, :create, :edit, :update, :destroy] 
+    resources :works, only: [:new, :create, :edit, :update, :destroy]
+    resources :directors, only: [:new, :create, :edit, :update, :destroy]
   end
 
 end
