@@ -32,6 +32,17 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
                 %br/
                 %a{:href => "#"} t.co/v82jsk
+      -if user_signed_in?
+        .col-md-4.d-none.d-md-block
+          .testimonial-wrap
+            .testimonial
+              =image_tag current_user.profile.image_url(:thumb), class: 'img-fluid'
+              -# %img.img-fluid{:alt => "Image", :src => "assets/img/person_1.jpg"}/
+              %blockquote
+          %h3="         #{current_user.profile.first_name} #{current_user.profile.last_name}"
+          %p=current_user.profile.introduction
+
+
       -# .col-md-4.d-none.d-md-block
       -#   %h3 Hire Me
       -#   %p

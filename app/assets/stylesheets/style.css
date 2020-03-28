@@ -139,10 +139,10 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   visibility: visible;
 }
 
-.testimonial-wrap {
+/* .testimonial-wrap {
   padding: 50px 50px 80px 50px;
   background: #eceff2;
-}
+} */
 
 .testimonial-wrap .testimonial {
   text-align: center;
