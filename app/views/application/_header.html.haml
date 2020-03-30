@@ -29,10 +29,15 @@
           %div
             %p
               %em
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore.
+                All of us every single year, we’re a different person. I don’t think we’re the same person all our lives.
                 %br/
-                %a{:href => "#"} t.co/v82jsk
-      -if user_signed_in?
+                %br/
+                A lot of the films I’ve made probably could have worked just as well 50 years ago, and that’s just because I have a lot of old-fashion values.
+                -# %a{:href => "#"} t.co/v82jsk
+                %br/
+                %br/
+                ="-Steven Spielberg"
+      -if user_signed_in? && current_user.profile.try{:image}.present?
         .col-md-4.d-none.d-md-block
           .testimonial-wrap
             .testimonial
