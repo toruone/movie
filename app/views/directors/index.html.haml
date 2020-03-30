@@ -33,5 +33,10 @@
               .work-info
                 %h3=director.name
                 %span=director.from
-              %img.img-fluid{:src => "img/img_1.jpg"}/
+              -# %img.img-fluid{:src => "img/img_1.jpg"}/
+              -if director.image.present?
+                =image_tag director.image_url(:thumb), class: 'img-fluid'
+              -else
+                %img.img-fluid{:src => "img/default_work.png"}/
+
       =link_to "Add New Director",  new_login_director_path, class: "btn btn-outline-success"
