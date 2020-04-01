@@ -37,9 +37,9 @@ gem 'acts_as_list'
 gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'kaminari'
-gem 'cloudinary'
 gem 'fog'
+gem 'cloudinary'
+gem 'kaminari'
 gem 'devise'
 
 
