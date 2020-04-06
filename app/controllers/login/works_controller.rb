@@ -50,7 +50,16 @@ class Login::WorksController < Login::ApplicationController
   end
 
   def work_params
-    params[:work].permit(:title, :release, :starring, :description, :director_id, :image, :remove_image)
+    params[:work].permit(
+      :title,
+      :release,
+      :starring,
+      :description,
+      :director_id,
+      :image,
+      :remove_image,
+      tag_ids: []
+    )
   end
 
 
